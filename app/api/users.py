@@ -1,6 +1,5 @@
 from flask import request, jsonify
 from app.api import bp
-from app.api.auth import basic_auth ## TODO: figure out how to use this
 from app.api.errors import bad_request
 import app.database as db_client
 
@@ -14,10 +13,12 @@ def signup_user():
 
   ## optional TODO: add some checks on password to make sure it is strong
 
+  # Confirm username is not taken
   existing_user = db_client.query_users_by_username(proposed_username).first()
   if existing_user is not None: 
     return bad_request('This username is taken.')
 
+  # Add user into databse
   new_user = db_client.insert_user(proposed_username, proposed_password)
 
   response = jsonify({ 'userUid': new_user.id })
@@ -32,10 +33,12 @@ def login_user():
   if username is None or password is None: 
     return bad_request('Must provide username and password.')
 
+  ## Confirm user exists
   existing_user = db_client.query_users_by_username(username).first()
   if existing_user is None: 
     return bad_request('No user found.')
-  
+
+  ## Confirm user provided correct password
   password_match = existing_user.check_password(password)
   if password_match is False:
     return bad_request('Incorrect password.')
