@@ -1,5 +1,5 @@
 from app import db
-from app.models import User
+from app.database.models import User
 
 def query_users_by_username(username):
   return User.query.filter_by(username=username)

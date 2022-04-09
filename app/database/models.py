@@ -26,3 +26,6 @@ class Submission(db.Model):
 
   def set_user_id(self, user_id):
     self.user_id = user_id
+
+  def __repr__(self):
+    return '<Submission {}>'.format(self.id)

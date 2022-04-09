@@ -20,7 +20,7 @@ def create_app():
   
   return app
 
-from app import models
+from app.database import models
 
 # import uuid
 # import cv2 as cv

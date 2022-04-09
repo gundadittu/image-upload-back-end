@@ -23,6 +23,8 @@ We then use the `route()` decorator to tell Flask what URL should trigger our fu
 The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser.
 
 To learn more, checkout the [official guide](https://flask.palletsprojects.com/en/2.0.x/quickstart/).
+## TODO: add instructions to run app, init db, migrate db (model changes)
+## TODO: add documentation on paths
 
 ## Instructions
 flask db init
