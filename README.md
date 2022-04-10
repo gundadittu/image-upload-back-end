@@ -1,16 +1,20 @@
 ## Prereqs:
-- Python 3
-- Poetry: https://python-poetry.org/docs/#installation
+- Python 3: https://www.python.org/downloads/
+- Pip: https://pip.pypa.io/en/stable/installation/
+- Poetry: https://python-poetry.org/docs/master/#installing-with-pip
+```bash
+python3 -m pip install --user poetry
+```
 
 ## Start Flask app
 Run the commands below in the application's root directory.
 ```bash
 python3 -m poetry install
-export FLASK_APP=main.py
-flask db init
-flask db migrate -m "initial"
-flask db upgrade
-flask run
+python3 -m poetry run export FLASK_APP=main.py
+python3 -m poetry run flask db init
+python3 -m poetry run flask db migrate -m "initial"
+python3 -m poetry run flask db upgrade
+python3 -m poetry run flask run
 ```
 
 ## Project structure
