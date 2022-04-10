@@ -2,6 +2,11 @@ from flask_httpauth import HTTPBasicAuth
 from app.database.models import User
 from app.api.errors import error_response
 
+"""
+This file defines helper functions to enforce authentication.
+Helpful doc: https://flask-httpauth.readthedocs.io/en/latest/
+"""
+
 basic_auth = HTTPBasicAuth()
 
 @basic_auth.verify_password

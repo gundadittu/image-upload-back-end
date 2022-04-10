@@ -1,34 +1,32 @@
-Flask is a minimal Python framework that helps you create a web server. 
+## Prereqs:
+- Python 3
+- Poetry: https://python-poetry.org/docs/#installation
 
-Let's take a look at the code we have:
+## Start Flask app
+python3 -m poetry install
 
-```python
-from flask import Flask
+export FLASK_APP=main.py
 
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    return "<h1>Hello, World!</h1>"
-```
-	
-What did that code do?
-
-First we `import` the `Flask` class. An instance of this class will be our WSGI application.
-
-Next we create an instance of this class. The first argument is the name of the application’s module or package. `__name__` is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.
-
-We then use the `route()` decorator to tell Flask what URL should trigger our function. In this case we use `/` routh, which is the default route of any website.
-
-The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser.
-
-To learn more, checkout the [official guide](https://flask.palletsprojects.com/en/2.0.x/quickstart/).
-## TODO: add instructions to run app, init db, migrate db (model changes)
-## TODO: add documentation on paths
-
-## Instructions
 flask db init
-
-## Migrate db
-flask db migrate -m ""
+flask db migrate -m "initia;"
 flask db upgrade
+
+flask run
+
+## Project structure
+- main.py (the entry point for the Flask app)
+- app/
+  - api/
+  - database/
+- migrations/ (stores database migration info; created when initializating db)
+- submissions/ (stores images from user submissions)
+  - raw/
+  - rotated/
+  - faces/
+- app.db (stores database tables and rows; created when initializating db)
+- config.py
+- poetry.lock (needed for dependency management)
+- pyproject.toml (needed for dependency management)
+
+## Repl.it
+https://replit.com/@gundadittu/image-upload-back-end?v=1

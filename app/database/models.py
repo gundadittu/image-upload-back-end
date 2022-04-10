@@ -2,6 +2,11 @@ from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
+"""
+This file defines the application's models and associated database table structure.
+Helpful doc: https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/
+"""
+
 class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   username = db.Column(db.String(64), index=True, unique=True, nullable=False)

@@ -1,6 +1,11 @@
 from app import db
 from app.database.models import Submission
 
+"""
+This files defines all helper methods to access "Submissions" table in database
+Helpful doc: https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
+"""
+
 def get_submission(submission_id):
   return Submission.query.filter_by(id=submission_id)
 

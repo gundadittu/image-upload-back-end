@@ -1,6 +1,11 @@
 from app import db
 from app.database.models import User
 
+"""
+This files defines all helper methods to access "Users" table in database
+Helpful doc: https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
+"""
+
 def query_users_by_username(username):
   return User.query.filter_by(username=username)
 

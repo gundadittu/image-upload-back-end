@@ -4,6 +4,10 @@ from app.api.errors import bad_request
 import app.database as db_client
 from app.api.auth import basic_auth
 
+"""
+This file contains all api routes related to user auth and data
+"""
+
 @bp.route('/users/signup', methods=['POST'])
 def signup_user():
   form = request.form
@@ -65,7 +69,8 @@ def get_submissions_for_user():
       'id': x.id,
       'title': x.title,
       'rawImagePath': url_for('api.get_raw_submission_image', submission_id=x.id),
-      'rotatedImagePath': url_for('api.get_rotated_submission_image', submission_id=x.id)
+      'rotatedImagePath': url_for('api.get_rotated_submission_image', submission_id=x.id),
+      'facesImagePath': url_for('api.get_faces_submission_image', submission_id=x.id)
   }, user_submissions))
 
   return jsonify({
