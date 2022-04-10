@@ -12,7 +12,6 @@ class User(db.Model):
   username = db.Column(db.String(64), index=True, unique=True, nullable=False)
   password_hash = db.Column(db.String(128), nullable=False)
   submissions = db.relationship('Submission', backref='user', lazy=True)
-  ## TODO: add a field that holds list of submission ids
 
   def set_username(self, username):
     self.username = username

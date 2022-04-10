@@ -16,8 +16,6 @@ def signup_user():
   if proposed_username is None or proposed_password is None: 
     return bad_request('Must provide username and password.')
 
-  ## optional TODO: add some checks on password to make sure it is strong
-
   # Confirm username is not taken
   existing_user = db_client.query_users_by_username(proposed_username).first()
   if existing_user is not None: 
