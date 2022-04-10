@@ -1,5 +1,6 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -23,9 +24,14 @@ class User(db.Model):
 class Submission(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
+  submitted_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+  title = db.Column(db.Text, nullable=False)
+  
   def set_user_id(self, user_id):
     self.user_id = user_id
+
+  def set_title(self, title):
+    self.title = title
 
   def __repr__(self):
     return '<Submission {}>'.format(self.id)

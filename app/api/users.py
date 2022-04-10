@@ -26,7 +26,7 @@ def signup_user():
   response.statusCode = 201
   return response
 
-@bp.route('/users/login', methods=['GET'])
+@bp.route('/users/login', methods=['POST'])
 def login_user():
   form = request.form
   username = form['username']
@@ -45,7 +45,7 @@ def login_user():
     return bad_request('Incorrect password.')
 
   response = jsonify('Success')
-  response.statusCode = 201
+  response.statusCode = 200
   return response
 
 @bp.route('/users/get-submissions', methods=['GET'])
@@ -63,6 +63,7 @@ def get_submissions_for_user():
   submissions_with_image_url_paths = list(map(
     lambda x: { 
       'id': x.id,
+      'title': x.title,
       'rawImagePath': url_for('api.get_raw_submission_image', submission_id=x.id),
       'rotatedImagePath': url_for('api.get_rotated_submission_image', submission_id=x.id)
   }, user_submissions))
