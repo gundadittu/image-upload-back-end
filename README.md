@@ -3,6 +3,7 @@
 - Poetry: https://python-poetry.org/docs/#installation
 
 ## Start Flask app
+Run the commands below in the application's root directory.
 ```bash
 python3 -m poetry install
 export FLASK_APP=main.py
