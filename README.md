@@ -14,6 +14,7 @@ flask run
 ```
 
 ## Project structure
+```bash
 - main.py (the entry point for the Flask app)
 - app/
   - api/
@@ -27,6 +28,7 @@ flask run
 - config.py
 - poetry.lock (needed for dependency management)
 - pyproject.toml (needed for dependency management)
+```
 
 ## Repl.it
 https://replit.com/@gundadittu/image-upload-back-end?v=1
