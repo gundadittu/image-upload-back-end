@@ -3,17 +3,14 @@
 - Poetry: https://python-poetry.org/docs/#installation
 
 ## Start Flask app
+```bash
 python3 -m poetry install
-
 export FLASK_APP=main.py
-
 flask db init
-
 flask db migrate -m "initial"
-
 flask db upgrade
-
 flask run
+```
 
 ## Project structure
 - main.py (the entry point for the Flask app)
