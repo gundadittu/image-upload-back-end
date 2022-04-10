@@ -1,0 +1,4 @@
+/app.db
+/.breakpoints
+__pycache__/
+migrations/
