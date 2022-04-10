@@ -8,7 +8,9 @@ python3 -m poetry install
 export FLASK_APP=main.py
 
 flask db init
-flask db migrate -m "initia;"
+
+flask db migrate -m "initial"
+
 flask db upgrade
 
 flask run
